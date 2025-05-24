@@ -305,6 +305,7 @@ export type TeamPreferences = {
 export enum NavigationNodeType {
   Collection = "collection",
   Document = "document",
+  Folder = "folder",
   UserMembership = "userMembership",
   GroupMembership = "groupMembership",
 }
