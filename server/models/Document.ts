@@ -64,6 +64,7 @@ import Team from "./Team";
 import User from "./User";
 import UserMembership from "./UserMembership";
 import View from "./View";
+import Folder from "./Folder";
 import ArchivableModel from "./base/ArchivableModel";
 import Fix from "./decorators/Fix";
 import { DocumentHelper } from "./helpers/DocumentHelper";
@@ -569,6 +570,13 @@ class Document extends ArchivableModel<
   @ForeignKey(() => Document)
   @Column(DataType.UUID)
   parentDocumentId: string | null;
+
+  @BelongsTo(() => Folder, "folderId")
+  folder: Folder | null;
+
+  @ForeignKey(() => Folder)
+  @Column(DataType.UUID)
+  folderId: string | null;
 
   @BelongsTo(() => User, "lastModifiedById")
   updatedBy: User;
